@@ -27,3 +27,6 @@ with open("data\A_people.json", encoding='utf-8') as file:
 # Libra: September 23 - October 22
 # Scorpio: October 23 - November 21
 # Sagittarius: November 22 - December 20
+
+# INFO WE NEED 
+# BIRTH PLACE, BIRTH DATE, PROFESSION, RELIGION
