@@ -2,16 +2,21 @@
 
 import json
 
-apeople=[]
-with open("data/A_people.json", encoding='utf-8') as file:
-    Apeople= json.load(file)
-    for dict in Apeople:
-        if "ontology/profession_label" in dict:
-            # print(str(dict["ontology/profession_label"]))
-            if "ontology/birthDate" in dict:
-                apeople.append(dict)
+abc= ['A','B', 'C', 'D', 'E', 'F', 'G', 'H',
+       'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P',
+         "Q", "R", 'S', 'T', "U", "V", 'W', 'X', "Y", "Z"]
 
-for dict in apeople:
+allpeople=[]
+for letter in abc:
+    with open(f"data/{letter}_people.json", encoding='utf-8') as file:
+        people= json.load(file)
+        for dict in people:
+            if "ontology/profession_label" in dict:
+                # print(str(dict["ontology/profession_label"]))
+                if "ontology/birthDate" in dict:
+                    allpeople.append(dict)
+
+for dict in allpeople:
     birthday=dict["ontology/birthDate"]
     if type(birthday) is list:
         birthday.pop(0)
@@ -44,9 +49,8 @@ for dict in apeople:
         dict["zodiac"]="scorpio"
     elif birthdaymd>1121 and birthdaymd<1221:
         dict["zodiac"]="sagittarius"
-# print(apeople)
+    # print(apeople)
 
-Apeople={}
 capricornppl=[]
 aquariusppl=[]
 piscesppl=[]
@@ -59,7 +63,7 @@ virgoppl=[]
 librappl=[]
 scorpioppl=[]
 sagittariusppl=[]
-for dict in apeople:
+for dict in allpeople:
     if dict["zodiac"]=="aquarius":
         if type(dict["ontology/profession_label"]) is list:
             for item in dict["ontology/profession_label"]:
@@ -68,67 +72,67 @@ for dict in apeople:
             aquariusppl.append(dict["ontology/profession_label"])
     elif dict["zodiac"]=="capricorn":
         if type(dict["ontology/profession_label"]) is list:
-             for item in dict["ontology/profession_label"]:
+            for item in dict["ontology/profession_label"]:
                 capricornppl.append(item)
         else:
             capricornppl.append(dict["ontology/profession_label"])
     elif dict["zodiac"]=="pisces":
         if type(dict["ontology/profession_label"]) is list:
-             for item in dict["ontology/profession_label"]:
+            for item in dict["ontology/profession_label"]:
                 piscesppl.append(item)
         else:
             piscesppl.append(dict["ontology/profession_label"])
     elif dict["zodiac"]=="aries":
         if type(dict["ontology/profession_label"]) is list:
-             for item in dict["ontology/profession_label"]:
+            for item in dict["ontology/profession_label"]:
                 ariesppl.append(item)
         else:
             ariesppl.append(dict["ontology/profession_label"])
     elif dict["zodiac"]=="taurus":
         if type(dict["ontology/profession_label"]) is list:
-             for item in dict["ontology/profession_label"]:
+            for item in dict["ontology/profession_label"]:
                 taurusppl.append(item)
         else:
             taurusppl.append(dict["ontology/profession_label"])
     elif dict["zodiac"]=="gemini":
         if type(dict["ontology/profession_label"]) is list:
-             for item in dict["ontology/profession_label"]:
+            for item in dict["ontology/profession_label"]:
                 geminippl.append(item)
         else:
             geminippl.append(dict["ontology/profession_label"])
     elif dict["zodiac"]=="cancer":
         if type(dict["ontology/profession_label"]) is list:
-             for item in dict["ontology/profession_label"]:
+            for item in dict["ontology/profession_label"]:
                 cancerppl.append(item)
         else:
             cancerppl.append(dict["ontology/profession_label"])
     elif dict["zodiac"]=="leo":
         if type(dict["ontology/profession_label"]) is list:
-             for item in dict["ontology/profession_label"]:
+            for item in dict["ontology/profession_label"]:
                 leoppl.append(item)
         else:
             leoppl.append(dict["ontology/profession_label"])
     elif dict["zodiac"]=="virgo":
         if type(dict["ontology/profession_label"]) is list:
-             for item in dict["ontology/profession_label"]:
+            for item in dict["ontology/profession_label"]:
                 virgoppl.append(item)
         else:
             virgoppl.append(dict["ontology/profession_label"])
     elif dict["zodiac"]=="libra":
         if type(dict["ontology/profession_label"]) is list:
-             for item in dict["ontology/profession_label"]:
+            for item in dict["ontology/profession_label"]:
                 librappl.append(item)
         else:
             librappl.append(dict["ontology/profession_label"])
     elif dict["zodiac"]=="scorpio":
         if type(dict["ontology/profession_label"]) is list:
-             for item in dict["ontology/profession_label"]:
+            for item in dict["ontology/profession_label"]:
                 scorpioppl.append(item)
         else:
             scorpioppl.append(dict["ontology/profession_label"])
     elif dict["zodiac"]=="saggitarius":
         if type(dict["ontology/profession_label"]) is list:
-             for item in dict["ontology/profession_label"]:
+            for item in dict["ontology/profession_label"]:
                 sagittariusppl.append(item)
         else:
             sagittariusppl.append(dict["ontology/profession_label"])
