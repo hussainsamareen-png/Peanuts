@@ -2,28 +2,52 @@
 
 import json
 
-# apeople=[]
-# with open("data\A_people.json", encoding='utf-8') as file:
-#     Apeople= json.load(file)
-#     for dict in Apeople:
-#         if "ontology/profession_label" in dict:
-#             print(str(dict["ontology/profession_label"]))
-#             apeople.append(dict)
-# print(apeople)
+apeople=[]
+with open("data\A_people.json", encoding='utf-8') as file:
+    Apeople= json.load(file)
+    for dict in Apeople:
+        if "ontology/profession_label" in dict:
+            print(str(dict["ontology/profession_label"]))
+            if "ontology/birthDate" in dict:
+                apeople.append(dict)
 
-abc= ['A','B', 'C', 'D', 'E', 'F', 'G', 'H',
-       'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P',
-         "Q", "R", 'S', 'T', "U", "V", 'W', 'X', "Y", "Z"]
+for dict in apeople:
+    birthday=dict["ontology/birthDate"]
+    if type(birthday) is list:
+        birthday.pop(0)
+    else:
+        birthdaymd=birthday[6:]
+        birthdaymd=birthdaymd.replace("-","")
+    print(birthdaymd)
 
-profpeople=[]
-for letter in abc:
-    with open(f"data/{letter}_people.json", encoding='utf-8') as file:
-        people= json.load(file)
-        for dict in people:
-            if "ontology/profession_label" in dict:
-                dict["ontology/profession_label"]
-                profpeople.append(dict)
-print(profpeople)
+
+
+
+# abc= ['A','B', 'C', 'D', 'E', 'F', 'G', 'H',
+#        'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P',
+#          "Q", "R", 'S', 'T', "U", "V", 'W', 'X', "Y", "Z"]
+
+# profpeople=[]
+# for letter in abc:
+#     with open(f"data/{letter}_people.json", encoding='utf-8') as file:
+#         people= json.load(file)
+#         for dict in people:
+#             if "ontology/profession_label" in dict:
+#                 dict["ontology/profession_label"]
+#                 profpeople.append(dict)
+# # print(profpeople)
+
+# profpeoplefilter={}
+# for dict in profpeople:
+#     birthday=dict["ontology/birthDate"]
+#     birthday=birthday.strip("-")
+#     print(birthday)
+#     # birthdaymd=birthday[4:]
+#     # print(birthday)
+
+    # profpeoplefilter["zodiac"]
+
+
 
 # Assign each person a zodiac sign, adding a new key:value pair
 # zodiac:xxx
