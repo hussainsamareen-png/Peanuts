@@ -39,11 +39,43 @@ for (i in 1:3){
   assign(paste0("profession", i), profession_i)
 }
 
-#print(profession1)
-#print(zodiac_profession1)
+# Make a list of all the the tables
+tables <- list(
+  zodiac_profession1,
+  zodiac_profession2,
+  zodiac_profession3
+)
 
-#print(profession2)
-#print(zodiac_profession2)
+# Loop for plotting the three barplots
+for (i in 1:3) {
 
-#print(profession3)
-#print(zodiac_profession3)
+  # Track which profession each barplot is for
+  profession_i <- professions_rank$Profession[i]
+  table_i <- tables[[i]]
+
+  # Create barplot
+  barplot_i <- table_i |>
+    ggplot(
+      aes(
+        x = Zodiac, 
+        y = Count, 
+        fill = Zodiac)
+      ) +
+    geom_col(fill = 'darkgrey') +
+      labs(
+        x = 'Zodiac sign', 
+        y = paste0('Number of ', profession_i, 's'), 
+        title = paste0('Distribution of ', profession_i, 's by zodiac sign')
+    ) +
+    # Formatting to make the barplots prettier
+    ylim(0, 500) +  # same y-axis for all barplots
+    geom_hline(yintercept = seq(100, 500, by = 100), color = "grey", linetype = "dashed", linewidth = 0.5)
+    theme_minimal() +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+   # Save the barplot as .png
+  ggsave(
+    filename = paste0("zodiac_barplot", i, ".png"),
+    plot = barplot_i
+  )
+}
