@@ -2,12 +2,8 @@
 
 import json
 
-abc= ['A','B', 'C', 'D', 'E', 'F', 'G', 'H',
-       'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P',
-         "Q", "R", 'S', 'T', "U", "V", 'W', 'X', "Y", "Z"]
-
 allpeople=[]
-for letter in abc:
+for letter in "ABCDEFGHIJKLMNOPQRSTUVWXYZ":
     with open(f"data/{letter}_people.json", encoding='utf-8') as file:
         people= json.load(file)
         for dict in people:
