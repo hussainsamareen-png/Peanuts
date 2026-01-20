@@ -20,15 +20,30 @@ professions_rank <- profession_counts |>
   arrange(desc(Count)) |>
   slice_head(n = 3)
 
-# Distribution of most common zodiac signs among zodiac signs
+count <- 0
 
-# Extract profession and make zodiac table for each
-profession1 <- professions_rank$Profession[1]
+# Loop for three most common professions 
+for (i in 1:3){
 
-# Count how many times that profession appears per zodiac
-zodiac_profession1 <- data_table |>
-  filter(Profession == profession1) |>
-  group_by(Zodiac) |>
-  summarise(Count = n(), .groups = "drop")
+  # Extract profession and make zodiac table for each
+  profession_i <- professions_rank$Profession[i]
 
+  # Count how many times that profession appears per zodiac and make a table for each
+  table_i <- data_table |>
+    filter(Profession == profession_i) |>
+    group_by(Zodiac) |>
+    summarise(Count = n(), .groups = "drop")
+
+  # Save to specific table for each profession
+  assign(paste0("zodiac_profession", i), table_i)
+  assign(paste0("profession", i), profession_i)
+}
+
+#print(profession1)
 #print(zodiac_profession1)
+
+#print(profession2)
+#print(zodiac_profession2)
+
+#print(profession3)
+#print(zodiac_profession3)
