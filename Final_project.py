@@ -142,19 +142,8 @@ for dict in allpeople:
 import csv
 
 data = [
-["Zodiac", "Professions"],
-["Capricorn:", capricornppl],
-["Aquarius:", aquariusppl],
-["Pisces:", piscesppl],
-["Aries:", ariesppl],
-["Taurus:", taurusppl],
-["Gemini:", geminippl],
-["Cancer:", cancerppl],
-["Leo:", leoppl],
-["Virgo:", virgoppl],
-["Libra:", librappl],
-["Scorpio:", scorpioppl],
-["Sagittarius:", sagittariusppl],
+["Capricorn","Aquarius","Pisces","Aries","Taurus","Gemini","Cancer","Leo","Virgo","Libra","Scorpio","Sagittarius"],
+[capricornppl,aquariusppl,piscesppl,ariesppl,taurusppl,geminippl,cancerppl,leoppl,virgoppl,librappl,scorpioppl,sagittariusppl],
 ]
 
 with open('profession_by_zodiac.csv', mode='w',  newline='', encoding="utf-8") as file:
