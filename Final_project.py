@@ -142,6 +142,7 @@ for dict in allpeople:
 import csv
 
 data = [
+["Zodiac", "Professions"],
 ["Capricorn:", capricornppl],
 ["Aquarius:", aquariusppl],
 ["Pisces:", piscesppl],
