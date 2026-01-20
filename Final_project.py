@@ -130,15 +130,51 @@ for dict in allpeople:
                 scorpioppl.append(item)
         else:
             scorpioppl.append(dict["ontology/profession_label"])
-    elif dict["zodiac"]=="saggitarius":
+    elif dict["zodiac"]=="sagittarius":
         if type(dict["ontology/profession_label"]) is list:
             for item in dict["ontology/profession_label"]:
                 sagittariusppl.append(item)
         else:
             sagittariusppl.append(dict["ontology/profession_label"])
 # print(aquariusppl)
-print(taurusppl)
+# print(taurusppl)
 
+import csv
+
+data = [
+["Capricorn:", capricornppl],
+["Aquarius:", aquariusppl],
+["Pisces:", piscesppl],
+["Aries:", ariesppl],
+["Taurus:", taurusppl],
+["Gemini:", geminippl],
+["Cancer:", cancerppl],
+["Leo:", leoppl],
+["Virgo:", virgoppl],
+["Libra:", librappl],
+["Scorpio:", scorpioppl],
+["Sagittarius:", sagittariusppl],
+]
+
+with open('profession_by_zodiac.csv', mode='w',  newline='', encoding="utf-8") as file:
+    writer = csv.writer(file)
+    writer.writerows(data)
+
+
+# Assign each person a zodiac sign, adding a new key:value pair
+# zodiac:xxx
+# Capricorn: December 21 - January 19
+# Aquarius: January 20 - February 18
+# Pisces: February 19 - March 20
+# Aries: March 21 - April 19
+# Taurus: April 20 - May 20
+# Gemini: May 21 - June 20
+# Cancer: June 21 - July 22
+# Leo: July 23 - August 22
+# Virgo: August 23 - September 22
+# Libra: September 23 - October 22
+# Scorpio: October 23 - November 21
+# Sagittarius: November 22 - December 20
 
 
 # abc= ['A','B', 'C', 'D', 'E', 'F', 'G', 'H',
@@ -167,20 +203,6 @@ print(taurusppl)
 
 
 
-# Assign each person a zodiac sign, adding a new key:value pair
-# zodiac:xxx
-# Capricorn: December 21 - January 19
-# Aquarius: January 20 - February 18
-# Pisces: February 19 - March 20
-# Aries: March 21 - April 19
-# Taurus: April 20 - May 20
-# Gemini: May 21 - June 20
-# Cancer: June 21 - July 22
-# Leo: July 23 - August 22
-# Virgo: August 23 - September 22
-# Libra: September 23 - October 22
-# Scorpio: October 23 - November 21
-# Sagittarius: November 22 - December 20
 
 # INFO WE NEED 
 # BIRTH PLACE, BIRTH DATE, PROFESSION, RELIGION
