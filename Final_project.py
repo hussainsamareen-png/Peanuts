@@ -19,7 +19,7 @@ for dict in apeople:
         birthdaymd=birthday[5:]
         birthdaymd=birthdaymd.replace("-","")
     birthdaymd=int(birthdaymd)
-    print(birthdaymd)
+    # print(birthdaymd)
     if birthdaymd<120 or birthdaymd>1220:
         dict["zodiac"]="capricorn"
     elif birthdaymd>119 and birthdaymd<219:
@@ -44,7 +44,49 @@ for dict in apeople:
         dict["zodiac"]="scorpio"
     elif birthdaymd>1121 and birthdaymd<1221:
         dict["zodiac"]="sagittarius"
-print(apeople)
+# print(apeople)
+
+Apeople={}
+capricornppl=[]
+aquariusppl=[]
+piscesppl=[]
+ariesppl=[]
+taurusppl=[]
+geminippl=[]
+cancerppl=[]
+leoppl=[]
+virgoppl=[]
+librappl=[]
+scorpioppl=[]
+sagittariusppl=[]
+for dict in apeople:
+    if dict["zodiac"]=="aquarius":
+        aquariusppl.append(dict["ontology/profession_label"])
+    elif dict["zodiac"]=="capricorn":
+        capricornppl.append(dict["ontology/profession_label"])
+    elif dict["zodiac"]=="pisces":
+        piscesppl.append(dict["ontology/profession_label"])
+    elif dict["zodiac"]=="aries":
+        ariesppl.append(dict["ontology/profession_label"])
+    elif dict["zodiac"]=="taurus":
+        taurusppl.append(dict["ontology/profession_label"])
+    elif dict["zodiac"]=="gemini":
+        geminippl.append(dict["ontology/profession_label"])
+    elif dict["zodiac"]=="cancer":
+        cancerppl.append(dict["ontology/profession_label"])
+    elif dict["zodiac"]=="leo":
+        leoppl.append(dict["ontology/profession_label"])
+    elif dict["zodiac"]=="virgo":
+        virgoppl.append(dict["ontology/profession_label"])
+    elif dict["zodiac"]=="libra":
+        librappl.append(dict["ontology/profession_label"])
+    elif dict["zodiac"]=="scorpio":
+        scorpioppl.append(dict["ontology/profession_label"])
+    elif dict["zodiac"]=="saggitarius":
+        sagittariusppl.append(dict["ontology/profession_label"])
+print(aquariusppl)
+print(taurusppl)
+
 
 
 
