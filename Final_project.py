@@ -2,26 +2,28 @@
 
 import json
 
-apeople=[]
+# apeople=[]
+# with open("data\A_people.json", encoding='utf-8') as file:
+#     Apeople= json.load(file)
+#     for dict in Apeople:
+#         if "ontology/profession_label" in dict:
+#             print(str(dict["ontology/profession_label"]))
+#             apeople.append(dict)
+# print(apeople)
 
+abc= ['A','B', 'C', 'D', 'E', 'F', 'G', 'H',
+       'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P',
+         "Q", "R", 'S', 'T', "U", "V", 'W', 'X', "Y", "Z"]
 
-with open("data\A_people.json", encoding='utf-8') as file:
-    Apeople= json.load(file)
-    for dict in Apeople:
-        if "ontology/profession_label" in dict:
-            print(str(dict["ontology/profession_label"]))
-            apeople.append(dict)
-print(apeople)
-
-
-
-# abc= ['A',"B", "C", 'D', 'E', 'F', 'G', "H",
-#        'I', 'J', 'K', 'L', "M", "N", "O", 'P',
-#          "Q", "R", 'S', 'T', "U", "V", 'W', 'X', "Y", "Z"]
-
-# for letter in abc:
-#     with open(f"data\People\{letter}_people.json", encoding='utf-8') as file:
-#     people= json.load(file)
+profpeople=[]
+for letter in abc:
+    with open(f"data/{letter}_people.json", encoding='utf-8') as file:
+        people= json.load(file)
+        for dict in people:
+            if "ontology/profession_label" in dict:
+                dict["ontology/profession_label"]
+                profpeople.append(dict)
+print(profpeople)
 
 # Assign each person a zodiac sign, adding a new key:value pair
 # zodiac:xxx
