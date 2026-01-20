@@ -53,18 +53,6 @@ data = [
 
 ]
 
-capricornppl=[]
-aquariusppl=[]
-piscesppl=[]
-ariesppl=[]
-taurusppl=[]
-geminippl=[]
-cancerppl=[]
-leoppl=[]
-virgoppl=[]
-librappl=[]
-scorpioppl=[]
-sagittariusppl=[]
 for dict in allpeople:
     if dict["zodiac"]=="aquarius":
         if type(dict["ontology/profession_label"]) is list:
@@ -220,6 +208,9 @@ with open('profession_by_zodiac.csv', mode='w',  newline='', encoding="utf-8") a
     writer = csv.writer(file)
     writer.writerows(data)
 
+
+for list in data:
+    for 
 
 # Assign each person a zodiac sign, adding a new key:value pair
 # zodiac:xxx
