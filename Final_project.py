@@ -1,8 +1,18 @@
 # data/*.json --> ignore file command.
 
 import json
+
+apeople=[]
+
+
 with open("data\A_people.json", encoding='utf-8') as file:
     Apeople= json.load(file)
+    for dict in Apeople:
+        if "ontology/profession_label" in dict:
+            print(str(dict["ontology/profession_label"]))
+            apeople.append(dict)
+print(apeople)
+
 
 
 # abc= ['A',"B", "C", 'D', 'E', 'F', 'G', "H",
