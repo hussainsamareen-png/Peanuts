@@ -61,32 +61,79 @@ scorpioppl=[]
 sagittariusppl=[]
 for dict in apeople:
     if dict["zodiac"]=="aquarius":
-        aquariusppl.append(dict["ontology/profession_label"])
+        if type(dict["ontology/profession_label"]) is list:
+            for item in dict["ontology/profession_label"]:
+                aquariusppl.append(item)
+        else:
+            aquariusppl.append(dict["ontology/profession_label"])
     elif dict["zodiac"]=="capricorn":
-        capricornppl.append(dict["ontology/profession_label"])
+        if type(dict["ontology/profession_label"]) is list:
+             for item in dict["ontology/profession_label"]:
+                capricornppl.append(item)
+        else:
+            capricornppl.append(dict["ontology/profession_label"])
     elif dict["zodiac"]=="pisces":
-        piscesppl.append(dict["ontology/profession_label"])
+        if type(dict["ontology/profession_label"]) is list:
+             for item in dict["ontology/profession_label"]:
+                piscesppl.append(item)
+        else:
+            piscesppl.append(dict["ontology/profession_label"])
     elif dict["zodiac"]=="aries":
-        ariesppl.append(dict["ontology/profession_label"])
+        if type(dict["ontology/profession_label"]) is list:
+             for item in dict["ontology/profession_label"]:
+                ariesppl.append(item)
+        else:
+            ariesppl.append(dict["ontology/profession_label"])
     elif dict["zodiac"]=="taurus":
-        taurusppl.append(dict["ontology/profession_label"])
+        if type(dict["ontology/profession_label"]) is list:
+             for item in dict["ontology/profession_label"]:
+                taurusppl.append(item)
+        else:
+            taurusppl.append(dict["ontology/profession_label"])
     elif dict["zodiac"]=="gemini":
-        geminippl.append(dict["ontology/profession_label"])
+        if type(dict["ontology/profession_label"]) is list:
+             for item in dict["ontology/profession_label"]:
+                geminippl.append(item)
+        else:
+            geminippl.append(dict["ontology/profession_label"])
     elif dict["zodiac"]=="cancer":
-        cancerppl.append(dict["ontology/profession_label"])
+        if type(dict["ontology/profession_label"]) is list:
+             for item in dict["ontology/profession_label"]:
+                cancerppl.append(item)
+        else:
+            cancerppl.append(dict["ontology/profession_label"])
     elif dict["zodiac"]=="leo":
-        leoppl.append(dict["ontology/profession_label"])
+        if type(dict["ontology/profession_label"]) is list:
+             for item in dict["ontology/profession_label"]:
+                leoppl.append(item)
+        else:
+            leoppl.append(dict["ontology/profession_label"])
     elif dict["zodiac"]=="virgo":
-        virgoppl.append(dict["ontology/profession_label"])
+        if type(dict["ontology/profession_label"]) is list:
+             for item in dict["ontology/profession_label"]:
+                virgoppl.append(item)
+        else:
+            virgoppl.append(dict["ontology/profession_label"])
     elif dict["zodiac"]=="libra":
-        librappl.append(dict["ontology/profession_label"])
+        if type(dict["ontology/profession_label"]) is list:
+             for item in dict["ontology/profession_label"]:
+                librappl.append(item)
+        else:
+            librappl.append(dict["ontology/profession_label"])
     elif dict["zodiac"]=="scorpio":
-        scorpioppl.append(dict["ontology/profession_label"])
+        if type(dict["ontology/profession_label"]) is list:
+             for item in dict["ontology/profession_label"]:
+                scorpioppl.append(item)
+        else:
+            scorpioppl.append(dict["ontology/profession_label"])
     elif dict["zodiac"]=="saggitarius":
-        sagittariusppl.append(dict["ontology/profession_label"])
-print(aquariusppl)
+        if type(dict["ontology/profession_label"]) is list:
+             for item in dict["ontology/profession_label"]:
+                sagittariusppl.append(item)
+        else:
+            sagittariusppl.append(dict["ontology/profession_label"])
+# print(aquariusppl)
 print(taurusppl)
-
 
 
 
