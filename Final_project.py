@@ -204,14 +204,13 @@ for dict in allpeople:
 print(data)
 import csv
 
-# Make .csv file with one profession per row
+# Make and save .csv file with one profession per row
 with open('profession_by_zodiac.csv', mode='w',  newline='', encoding="utf-8") as file:
     writer = csv.writer(file)
     writer.writerows(data)
-    for zodiac, professions in data:
-        for profession in professions:
-            row = [zodiac, profession]
-            writer.writerow(row)
+    for zodiac, profession in data:
+        row = [zodiac, profession]
+        writer.writerow(row)
 
 #print(writer)
 
