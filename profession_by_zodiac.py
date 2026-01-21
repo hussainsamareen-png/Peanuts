@@ -213,9 +213,6 @@ import csv
 with open('profession_by_zodiac.csv', mode='w',  newline='', encoding="utf-8") as file:
     writer = csv.writer(file)
     writer.writerows(data)
-    for zodiac, profession in data:
-        row = [zodiac, profession]
-        writer.writerow(row)
 
 #print(writer)
 
