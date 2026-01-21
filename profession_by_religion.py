@@ -1,5 +1,5 @@
 import json
-
+# Filtering for people with an entry of profession and religion by labels
 allpeople=[]
 for letter in "ABCDEFGHIJKLMNOPQRSTUVWXYZ":
     with open(f"data/{letter}_people.json", encoding='utf-8') as file:
@@ -10,11 +10,13 @@ for letter in "ABCDEFGHIJKLMNOPQRSTUVWXYZ":
                 if "ontology/religion_label" in dict:
                     allpeople.append(dict)
 
+# Creating final python data table
 data = [
     ["Religion", "Profession"],
 
 ]
 
+# Adding each entry to data -> if/else commands for multiple entries in profession + religion for they show as multiple entries
 for dict in allpeople:
     if type(dict["ontology/religion_label"]) is list:
         if type(dict["ontology/profession_label"]) is list:
@@ -46,7 +48,7 @@ for dict in allpeople:
             data.append(entry)
         
 
-
+# Making CSV 
 print(data)
 import csv
 

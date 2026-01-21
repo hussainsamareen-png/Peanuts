@@ -2,6 +2,7 @@
 
 import json
 
+# Filtering for entries with profession and birthdate as labels
 allpeople=[]
 for letter in "ABCDEFGHIJKLMNOPQRSTUVWXYZ":
     with open(f"data/{letter}_people.json", encoding='utf-8') as file:
@@ -12,6 +13,7 @@ for letter in "ABCDEFGHIJKLMNOPQRSTUVWXYZ":
                 if "ontology/birthDate" in dict:
                     allpeople.append(dict)
 
+# Changing birthdates into MMDD (integer) format => Assigning zodiac signs to all filtered entries 
 for dict in allpeople:
     birthday=dict["ontology/birthDate"]
     if type(birthday) is list:
@@ -47,12 +49,14 @@ for dict in allpeople:
         dict["zodiac"]="sagittarius"
     # print(apeople)
 
-
+# New data with header
 data = [
 ["Zodiac", "Profession"],
 
 ]
 
+# Adding each entry as [zodiac, profession] 
+    # If/else added for if profession is a list 
 for dict in allpeople:
     if dict["zodiac"]=="aquarius":
         if type(dict["ontology/profession_label"]) is list:
@@ -201,6 +205,7 @@ for dict in allpeople:
 # print(aquariusppl)
 # print(taurusppl)
 
+
 print(data)
 import csv
 
@@ -229,30 +234,6 @@ with open('profession_by_zodiac.csv', mode='w',  newline='', encoding="utf-8") a
 # Scorpio: October 23 - November 21
 # Sagittarius: November 22 - December 20
 
-
-# abc= ['A','B', 'C', 'D', 'E', 'F', 'G', 'H',
-#        'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P',
-#          "Q", "R", 'S', 'T', "U", "V", 'W', 'X', "Y", "Z"]
-
-# profpeople=[]
-# for letter in abc:
-#     with open(f"data/{letter}_people.json", encoding='utf-8') as file:
-#         people= json.load(file)
-#         for dict in people:
-#             if "ontology/profession_label" in dict:
-#                 dict["ontology/profession_label"]
-#                 profpeople.append(dict)
-# # print(profpeople)
-
-# profpeoplefilter={}
-# for dict in profpeople:
-#     birthday=dict["ontology/birthDate"]
-#     birthday=birthday.strip("-")
-#     print(birthday)
-#     # birthdaymd=birthday[4:]
-#     # print(birthday)
-
-    # profpeoplefilter["zodiac"]
 
 
 
