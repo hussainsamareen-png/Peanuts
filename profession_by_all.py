@@ -1,5 +1,6 @@
 import json
 
+# Run for all A-Z
 allpeople=[]
 for letter in "ABCDEFGHIJKLMNOPQRSTUVWXYZ":
     with open(f"data/{letter}_people.json", encoding='utf-8') as file:
@@ -115,12 +116,12 @@ for dict in allpeople:
         dict["birthcont"]="NA"
 
 
-# Adding all into one data
+# Add all into one data
 data=[
     ["Zodiac", "Continent of Birth", "Religion", "Profession"],
 ]
 
-
+# Add birthcont and zodiac for people who may have had multiple and run through every item and found nothing.
 for dict in allpeople:
     if "birthcont" not in dict:
         dict["birthcont"]="NA"
@@ -128,7 +129,7 @@ for dict in allpeople:
         dict["zodiac"]="NA"
 
 
-# for dict in allpeople:
+# Compile all into 1 csv
 for dict in allpeople:
     if "ontology/religion_label" in dict:
         if type(dict["ontology/religion_label"]) is list:
@@ -191,7 +192,7 @@ for dict in allpeople:
                         dict["religion"]="Muslim"
                     elif dict["ontology/religion_label"] in hindu:
                         dict["religion"]="Hindu"
-                    elif dict["ontology/religion_label"] in "Atheist/Agnostics":
+                    elif dict["ontology/religion_label"] in atheist:
                         dict["religion"]="Atheist/Agnostics"
                     else:
                         dict["religion"]="NA"

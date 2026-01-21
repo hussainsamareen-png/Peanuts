@@ -517,8 +517,8 @@ virgo,NA,Hindu,Head teacher
 leo,Europe,NA,Politician
 gemini,Asia,NA,Physician
 virgo,South America,Christian,Lawyer
-aquarius,NA,NA,Lawyer
-aquarius,NA,NA,Journalist
+aquarius,NA,Atheist/Agnostics,Lawyer
+aquarius,NA,Atheist/Agnostics,Journalist
 cancer,NA,NA,Wikt:Statesman
 NA,NA,Christian,Public figure
 capricorn,NA,NA,Jurist
@@ -1605,8 +1605,8 @@ capricorn,NA,NA,Businessperson
 NA,NA,Christian,United States Air Force
 virgo,North America,Christian,Trade union
 cancer,NA,Christian,Legislator
-sagittarius,NA,NA,Trade union
-sagittarius,NA,NA,Politics
+sagittarius,NA,Atheist/Agnostics,Trade union
+sagittarius,NA,Atheist/Agnostics,Politics
 taurus,NA,Christian,Optometry
 pisces,North America,NA,Lawyer
 pisces,North America,NA,Politician
@@ -5440,8 +5440,8 @@ sagittarius,North America,NA,Business
 leo,North America,NA,Dentist
 gemini,North America,NA,Lawyer
 capricorn,NA,Jew,Faculty of Advocates
-cancer,NA,NA,Art
-cancer,NA,NA,Author
+cancer,NA,Atheist/Agnostics,Art
+cancer,NA,Atheist/Agnostics,Author
 aquarius,NA,Christian,Ice hockey
 aquarius,NA,Christian,Politician
 aquarius,NA,Christian,Businessperson
@@ -6956,8 +6956,8 @@ libra,NA,NA,Professor
 capricorn,Europe,Christian,Royal Institution of Chartered Surveyors
 gemini,NA,NA,Legal profession
 cancer,NA,NA,Lawyer
-scorpio,NA,NA,Politician
-scorpio,NA,NA,Entrepreneurship
+scorpio,NA,Atheist/Agnostics,Politician
+scorpio,NA,Atheist/Agnostics,Entrepreneurship
 NA,North America,NA,Lawyer
 NA,North America,NA,Merchant
 NA,North America,NA,Politician
