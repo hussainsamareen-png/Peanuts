@@ -1,71 +1,48 @@
-# R code for creating data tables and graphs
+# R code for zodiac signs
 
 library(tidyverse)
-
-# Note: make this into a loop for all of the files needed, so it can do all at once
-# for .csv file in folder
 
 # Load data
 data <- read_csv("profession_by_zodiac.csv")
 
-# Make table with zodiac and one profession per row
-data_table_zodiac <- data |>
-  select(Zodiac, Profession)
+# Order them, such that they are in chronological order
+zodiac_order <- c(
+  "capricorn", "aquarius", "pisces", "aries", "taurus", "gemini", 
+  "cancer", "leo", "virgo", "libra", "scorpio", "sagittarius")
 
-# Make a list of the tables (each entry in the list is a table) that count:
-counts <- list(
-  by_profession = data_table_zodiac |> count(Profession, name = "Count"), # amount of people in each profession
-  by_zodiac = data_table_zodiac |> count(Zodiac, name = "Count") # amount of people with each zodiac sign
-)
+# Make table for most common professions for each zodiac sign and the counts and percentage
+zodiac_professions <- data |>
+  filter(Zodiac != 'Zodiac', Profession != 'Profession') |>
+  group_by(Zodiac, Profession) |>
+  summarise(count = n(), .groups = "drop") |>
+  group_by(Zodiac) |>
+  mutate(total_in_zodiac = sum(count)) |>
+  slice_max(count, n = 1, with_ties = FALSE) |>
+  mutate(percentage = (count / total_in_zodiac) * 100) |>
+  select(Zodiac, Profession, count, percentage) |>
+  arrange(match(Zodiac, zodiac_order))
 
-# Find the three most common professions
-professions_rank <- counts$by_profession |>
-  arrange(desc(Count)) |>
-  slice_head(n = 3)
-
-# Add a list in which the tables for the visualisation will be saved
-tables <- list()
-
-# Loop for three most common professions 
-for (i in 1:3){
-
-  # Extract profession and make zodiac table for each
-  profession_i <- professions_rank$Profession[i]
-
-  # Count how many times that profession appears 
-  table_i <- data_table_zodiac |>
-    filter(Profession == profession_i) |>
-    group_by(Zodiac) |>
-    summarise(Count = n(), .groups = "drop") |>
-    mutate(Percentage = Count / counts$by_zodiac$Count[match(Zodiac, counts$by_zodiac$Zodiac)] * 100) |>
-    arrange(desc(Percentage)) |> 
-    mutate(Zodiac = factor(Zodiac, levels = Zodiac))
-
-  # Create barplot
-  barplot_i <- table_i |>
-    ggplot(
-      aes(
-        x = Zodiac, 
-        y = Percentage, 
-        fill = Zodiac)
-      ) +
-    geom_col(fill = 'darkgrey') +
-      labs(
-        x = 'Zodiac sign', 
-        y = paste0('Number of ', profession_i, 's'), 
-        title = paste0('Percentage of ', profession_i, 's per zodiac sign %')
-    ) +
-    # Formatting to make the barplots prettier
-    ylim(0, 30) +  # same y-axis for all barplots
-    geom_hline( # formatting and aesthetics
-      yintercept = seq(5, 30, by = 5),
-      color = "grey", 
-      linetype = "dashed"
-    )
-
-  # Save the barplot as .png
-  ggsave(
-    filename = paste0("zodiac_barplot", i, ".png"),
-    plot = barplot_i
+# Plot barplot
+barplot <- ggplot(zodiac_professions, aes(
+    x = factor(Zodiac, levels = zodiac_order),
+    y = percentage,
+    fill = Profession
+  )) +
+  geom_col() +
+  labs(
+    x = 'Zodiac sign in chronological order',
+    y = 'Percentage of people with most common profession',
+    title = 'Percentage of people in their zodiac\'s most common profession'
+  ) +
+  ylim(0, 30) +
+  geom_hline(
+    yintercept = seq(5, 30, by = 5),
+    color = "grey", 
+    linetype = "dashed"
   )
-}
+
+# Save the barplot as .png
+ggsave(
+  filename = "zodiac_barplot.png",
+  plot = barplot
+)
