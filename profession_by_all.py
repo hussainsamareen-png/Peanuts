@@ -118,7 +118,7 @@ for person in selectpeople:
 
 # Add all into one data
 data=[
-    ["Zodiac", "Continent of Birth", "Religion", "Profession"],
+    ["Zodiac", "Continent", "Religion", "Profession"],
 ]
 
 # Add birthcont and zodiac for people who may have had multiple and run through every item and found nothing.
