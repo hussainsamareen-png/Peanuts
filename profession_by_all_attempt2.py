@@ -133,70 +133,44 @@ for dict in allpeople:
 for dict in allpeople:
     if "ontology/religion_label" in dict:
         if type(dict["ontology/religion_label"]) is list:
-            if type(dict["ontology/profession_label"]) is list:
-                for item in dict["ontology/religion_label"]:
-                    if item in christian:
-                        dict["religion"]="Christian"
-                    elif item in jewish:
-                        dict["religion"]="Jew"
-                    elif item in buddhist:
-                        dict["religion"]="Buddhist"
-                    elif item in islam:
-                        dict["religion"]="Muslim"
-                    elif item in hindu:
-                        dict["religion"]="Hindu"
-                    elif item in atheist:
-                        dict["religion"]="Atheist/Agnostics"
+            for item in dict["ontology/religion_label"]:
+                if item in christian:
+                    dict["religion"]="Christian"
+                elif item in jewish:
+                    dict["religion"]="Jew"
+                elif item in buddhist:
+                    dict["religion"]="Buddhist"
+                elif item in islam:
+                    dict["religion"]="Muslim"
+                elif item in hindu:
+                    dict["religion"]="Hindu"
+                elif item in atheist:
+                    dict["religion"]="Atheist/Agnostics"
+                else:
+                    dict["religion"]="NA"
+                if "ontology/profession_label" in dict:
+                    if type(dict["ontology/profession_label"]) is list:
+                        for item in dict["ontology/profession_label"]:
+                            onto=item
+                            entry=[]
+                            entry.append(dict["zodiac"])
+                            entry.append(dict["birthcont"])
+                            entry.append(dict["religion"])
+                            entry.append(onto)
+                            data.append(entry)
                     else:
-                        dict["religion"]="NA"
-                    for item in dict["ontology/profession_label"]:
-                        onto=item
                         entry=[]
                         entry.append(dict["zodiac"])
                         entry.append(dict["birthcont"])
                         entry.append(dict["religion"])
-                        entry.append(onto)
+                        entry.append(dict["ontology/profession_label"])
                         data.append(entry)
-            else:
-                for item in dict["ontology/religion_label"]:
-                    if item in christian:
-                        dict["religion"]="Christian"
-                    elif item in jewish:
-                        dict["religion"]="Jew"
-                    elif item in buddhist:
-                        dict["religion"]="Buddhist"
-                    elif item in islam:
-                        dict["religion"]="Muslim"
-                    elif item in hindu:
-                        dict["religion"]="Hindu"
-                    elif item in atheist:
-                        dict["religion"]="Atheist/Agnostics"
-                    else:
-                        dict["religion"]="NA"
-                    entry=[]
-                    entry.append(dict["zodiac"])
-                    entry.append(dict["birthcont"])
-                    entry.append(dict["religion"])
-                    entry.append(dict["ontology/profession_label"])
-                    data.append(entry)
-        else:
+    else:
+        dict["religion"]="NA"
+        if "ontology/profession_label" in dict:
             if type(dict["ontology/profession_label"]) is list:
                 for item in dict["ontology/profession_label"]:
                     onto=item
-                    if dict["ontology/religion_label"] in christian:
-                        dict["religion"]="Christian"
-                    elif dict["ontology/religion_label"] in jewish:
-                        dict["religion"]="Jew"
-                    elif dict["ontology/religion_label"] in buddhist:
-                        dict["religion"]="Buddhist"
-                    elif dict["ontology/religion_label"] in islam:
-                        dict["religion"]="Muslim"
-                    elif dict["ontology/religion_label"] in hindu:
-                        dict["religion"]="Hindu"
-                    elif dict["ontology/religion_label"] in atheist:
-                        dict["religion"]="Atheist/Agnostics"
-                    else:
-                        dict["religion"]="NA"
                     entry=[]
                     entry.append(dict["zodiac"])
                     entry.append(dict["birthcont"])
@@ -204,45 +178,15 @@ for dict in allpeople:
                     entry.append(onto)
                     data.append(entry)
             else:
-                if dict["ontology/religion_label"] in christian:
-                    dict["religion"]="Christian"
-                elif dict["ontology/religion_label"] in jewish:
-                    dict["religion"]="Jew"
-                elif dict["ontology/religion_label"] in buddhist:
-                    dict["religion"]="Buddhist"
-                elif dict["ontology/religion_label"] in islam:
-                    dict["religion"]="Muslim"
-                elif dict["ontology/religion_label"] in hindu:
-                    dict["religion"]="Hindu"
-                elif dict["ontology/religion_label"] in atheist:
-                    dict["religion"]="Atheist/Agnostics"
-                else:
-                    dict["religion"]="NA"
                 entry=[]
                 entry.append(dict["zodiac"])
                 entry.append(dict["birthcont"])
                 entry.append(dict["religion"])
                 entry.append(dict["ontology/profession_label"])
-                data.append(entry)
-    else:
-        dict["religion"]="NA"
-        if type(dict["ontology/profession_label"]) is list:
-            for item in dict["ontology/profession_label"]:
-                onto=item
-                entry=[]
-                entry.append(dict["zodiac"])
-                entry.append(dict["birthcont"])
-                entry.append(dict["religion"])
-                entry.append(onto)
-                data.append(entry)
-        else:
-                entry=[]
-                entry.append(dict["zodiac"])
-                entry.append(dict["birthcont"])
-                entry.append(dict["religion"])
-                entry.append(dict["ontology/profession_label"])
-                data.append(entry)
+                data.append
 
+
+                
 import csv
 
 # Make CSV file
