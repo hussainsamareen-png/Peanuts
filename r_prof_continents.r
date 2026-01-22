@@ -82,6 +82,7 @@ sub_continent_professions <- data |>
   summarise(count = n(), .groups = "drop") |>
   group_by(Continent) |>
   mutate(total_in_continent = sum(count)) |>
+  filter(Profession=="Politician"|Profession=="Lawyer"|Profession=="Businessperson"|Profession=="Economist"|Profession=="Physician"|Profession=="Barrister") |>
   mutate(percentage = (count / total_in_continent) * 100) |>
   ungroup() |>
   select(Continent, Profession, count, percentage) |>
@@ -112,8 +113,8 @@ sub_barplot <- sub_continent_professions |>
   ) + facet_wrap(~Continent) +
   ylim(0, 40) +
   scale_y_continuous(labels=scales::label_percent()) +
-  scale_fill_manual(values = c("#fe0002", "#115fff", "#fccd01", "#87e23d", "#188d7b", "#ff8e02", "#791e9f", "#a67b5c", "#00FFFF", "#555555", "#f69cc2"))
-    labels = c("Politician", "Lawyer", "Businessperson", "Teacher", "Economist", "Physician", "Barrister", "Farmer", "Attorneys in the United States", "Authors", "Art") +
+  scale_fill_manual(values = c("#fe0002","#115fff","#fccd01","#188d7b","#ff8e02","#791e9f" ),
+    labels = c("Politician","Lawyer", "Businessperson", "Economist", "Physician", "Barrister")) +
   geom_hline(
     yintercept = seq(5/100, 30/100, by = 5/100),
     color = "grey", 

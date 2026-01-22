@@ -24,29 +24,29 @@ for dict in allpeople:
     birthdaymd=int(birthdaymd)
     # print(birthdaymd)
     if birthdaymd<120 or birthdaymd>1220:
-        dict["zodiac"]="capricorn"
+        dict["zodiac"]="Capricorn"
     elif birthdaymd>119 and birthdaymd<219:
-        dict["zodiac"]="aquarius"
+        dict["zodiac"]="Aquarius"
     elif birthdaymd>218 and birthdaymd<321:
-        dict["zodiac"]="pisces"
+        dict["zodiac"]="Pisces"
     elif birthdaymd>320 and birthdaymd<420:
-        dict["zodiac"]="aries"
+        dict["zodiac"]="Aries"
     elif birthdaymd>419 and birthdaymd<521:
-        dict["zodiac"]="taurus"
+        dict["zodiac"]="Taurus"
     elif birthdaymd>520 and birthdaymd<621:
-        dict["zodiac"]="gemini"
+        dict["zodiac"]="Gemini"
     elif birthdaymd>620 and birthdaymd<723:
-        dict["zodiac"]="cancer"
+        dict["zodiac"]="Cancer"
     elif birthdaymd>722 and birthdaymd<823:
-        dict["zodiac"]="leo"
+        dict["zodiac"]="Leo"
     elif birthdaymd>822 and birthdaymd<923:
-        dict["zodiac"]="virgo"
+        dict["zodiac"]="Virgo"
     elif birthdaymd>922 and birthdaymd<1023:
-        dict["zodiac"]="libra"
+        dict["zodiac"]="Libra"
     elif birthdaymd>1022 and birthdaymd<1122:
-        dict["zodiac"]="scorpio"
+        dict["zodiac"]="Scorpio"
     elif birthdaymd>1121 and birthdaymd<1221:
-        dict["zodiac"]="sagittarius"
+        dict["zodiac"]="Sagittarius"
     # print(apeople)
 
 # New data with header
@@ -58,7 +58,7 @@ data = [
 # Adding each entry as [zodiac, profession] 
     # If/else added for if profession is a list 
 for dict in allpeople:
-    if dict["zodiac"]=="aquarius":
+    if dict["zodiac"]=="Aquarius":
         if type(dict["ontology/profession_label"]) is list:
             for item in dict["ontology/profession_label"]:
                 entry=[]
@@ -70,7 +70,7 @@ for dict in allpeople:
             entry.append(dict["zodiac"])
             entry.append(dict["ontology/profession_label"])
             data.append(entry)
-    elif dict["zodiac"]=="capricorn":
+    elif dict["zodiac"]=="Capricorn":
         if type(dict["ontology/profession_label"]) is list:
             for item in dict["ontology/profession_label"]:
                 entry=[]
@@ -82,7 +82,7 @@ for dict in allpeople:
             entry.append(dict["zodiac"])
             entry.append(dict["ontology/profession_label"])
             data.append(entry)
-    elif dict["zodiac"]=="pisces":
+    elif dict["zodiac"]=="Pisces":
         if type(dict["ontology/profession_label"]) is list:
             for item in dict["ontology/profession_label"]:
                 entry=[]
@@ -94,7 +94,7 @@ for dict in allpeople:
             entry.append(dict["zodiac"])
             entry.append(dict["ontology/profession_label"])
             data.append(entry)
-    elif dict["zodiac"]=="aries":
+    elif dict["zodiac"]=="Aries":
         if type(dict["ontology/profession_label"]) is list:
             for item in dict["ontology/profession_label"]:
                 entry=[]
@@ -106,7 +106,7 @@ for dict in allpeople:
             entry.append(dict["zodiac"])
             entry.append(dict["ontology/profession_label"])
             data.append(entry)
-    elif dict["zodiac"]=="taurus":
+    elif dict["zodiac"]=="Taurus":
         if type(dict["ontology/profession_label"]) is list:
             for item in dict["ontology/profession_label"]:
                 entry=[]
@@ -118,7 +118,7 @@ for dict in allpeople:
             entry.append(dict["zodiac"])
             entry.append(dict["ontology/profession_label"])
             data.append(entry)
-    elif dict["zodiac"]=="gemini":
+    elif dict["zodiac"]=="Gemini":
         if type(dict["ontology/profession_label"]) is list:
             for item in dict["ontology/profession_label"]:
                 entry=[]
@@ -130,7 +130,7 @@ for dict in allpeople:
             entry.append(dict["zodiac"])
             entry.append(dict["ontology/profession_label"])
             data.append(entry)
-    elif dict["zodiac"]=="cancer":
+    elif dict["zodiac"]=="Cancer":
         if type(dict["ontology/profession_label"]) is list:
             for item in dict["ontology/profession_label"]:
                 entry=[]
@@ -142,7 +142,7 @@ for dict in allpeople:
             entry.append(dict["zodiac"])
             entry.append(dict["ontology/profession_label"])
             data.append(entry)
-    elif dict["zodiac"]=="leo":
+    elif dict["zodiac"]=="Leo":
         if type(dict["ontology/profession_label"]) is list:
             for item in dict["ontology/profession_label"]:
                 entry=[]
@@ -154,7 +154,7 @@ for dict in allpeople:
             entry.append(dict["zodiac"])
             entry.append(dict["ontology/profession_label"])
             data.append(entry)
-    elif dict["zodiac"]=="virgo":
+    elif dict["zodiac"]=="Virgo":
         if type(dict["ontology/profession_label"]) is list:
             for item in dict["ontology/profession_label"]:
                 entry=[]
@@ -166,7 +166,7 @@ for dict in allpeople:
             entry.append(dict["zodiac"])
             entry.append(dict["ontology/profession_label"])
             data.append(entry)
-    elif dict["zodiac"]=="libra":
+    elif dict["zodiac"]=="Libra":
         if type(dict["ontology/profession_label"]) is list:
             for item in dict["ontology/profession_label"]:
                 entry=[]
@@ -178,7 +178,7 @@ for dict in allpeople:
             entry.append(dict["zodiac"])
             entry.append(dict["ontology/profession_label"])
             data.append(entry)
-    elif dict["zodiac"]=="scorpio":
+    elif dict["zodiac"]=="Scorpio":
         if type(dict["ontology/profession_label"]) is list:
             for item in dict["ontology/profession_label"]:
                 entry=[]
@@ -190,7 +190,7 @@ for dict in allpeople:
             entry.append(dict["zodiac"])
             entry.append(dict["ontology/profession_label"])
             data.append(entry)
-    elif dict["zodiac"]=="sagittarius":
+    elif dict["zodiac"]=="Sagittarius":
         if type(dict["ontology/profession_label"]) is list:
             for item in dict["ontology/profession_label"]:
                 entry=[]

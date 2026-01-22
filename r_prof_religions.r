@@ -81,6 +81,7 @@ sub_religion_professions <- data |>
   summarise(count = n(), .groups = "drop") |>
   group_by(Religion) |>
   mutate(total_in_religion = sum(count)) |>
+  filter(Profession=="Politician"|Profession=="Businessperson"|Profession=="Teacher"|Profession=="Economist"|Profession=="Lawyer"|Profession=="Art"|Profession=="Farmer"|Profession=="Attorneys in the United States"|Profession=="Author") |>
   mutate(percentage = (count / total_in_religion) * 100) |>
   ungroup() |>
   select(Religion, Profession, count, percentage) |>
@@ -124,8 +125,8 @@ sub_barplot <- sub_religion_professions |>
   ) + facet_wrap(~Religion) +
   ylim(0, 30) +
   scale_y_continuous(labels=scales::label_percent()) +
-  scale_fill_manual(values = c("#fe0002", "#115fff", "#fccd01", "#87e23d", "#188d7b", "#ff8e02", "#791e9f", "#f69cc2", "#a67b5c", "#00FFFF", "#555555"))
-    labels = c("Politician", "Lawyer", "Businessperson", "Teacher", "Economist", "Physician", "Barrister", "Art", "Farmer", "Attorneys in the United States", "Authors") +
+  scale_fill_manual(values = c("#fe0002","#fccd01","#87e23d", "#188d7b", "#115fff", "#f69cc2", "#a95c26", "#00FFFF", "#555555"),
+                    labels = c("Politician","Businessperson", "Teacher", "Economist", "Lawyer", "Art", "Farmer", "Attorneys in the United States", "Author")) +
   geom_hline(
     yintercept = seq(5/100, 30/100, by = 5/100),
     color = "grey", 

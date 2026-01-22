@@ -26,29 +26,29 @@ for person in selectpeople:
         birthdaymd=int(birthdaymd)
         # print(birthdaymd)
         if birthdaymd<120 or birthdaymd>1220:
-            person["zodiac"]="capricorn"
+            person["zodiac"]="Capricorn"
         elif birthdaymd>119 and birthdaymd<219:
-            person["zodiac"]="aquarius"
+            person["zodiac"]="Aquarius"
         elif birthdaymd>218 and birthdaymd<321:
-            person["zodiac"]="pisces"
+            person["zodiac"]="Pisces"
         elif birthdaymd>320 and birthdaymd<420:
-            person["zodiac"]="aries"
+            person["zodiac"]="Aries"
         elif birthdaymd>419 and birthdaymd<521:
-            person["zodiac"]="taurus"
+            person["zodiac"]="Taurus"
         elif birthdaymd>520 and birthdaymd<621:
-            person["zodiac"]="gemini"
+            person["zodiac"]="Gemini"
         elif birthdaymd>620 and birthdaymd<723:
-            person["zodiac"]="cancer"
+            person["zodiac"]="Cancer"
         elif birthdaymd>722 and birthdaymd<823:
-            person["zodiac"]="leo"
+            person["zodiac"]="Leo"
         elif birthdaymd>822 and birthdaymd<923:
-            person["zodiac"]="virgo"
+            person["zodiac"]="Virgo"
         elif birthdaymd>922 and birthdaymd<1023:
-            person["zodiac"]="libra"
+            person["zodiac"]="Libra"
         elif birthdaymd>1022 and birthdaymd<1122:
-            person["zodiac"]="scorpio"
+            person["zodiac"]="Scorpio"
         elif birthdaymd>1121 and birthdaymd<1221:
-            person["zodiac"]="sagittarius"
+            person["zodiac"]="Sagittarius"
     else:
         person["zodiac"]="NA"
     # if "ontology/birthPlace_label" in person:
