@@ -1,5 +1,4 @@
 # R code for zodiac signs
-
 library(tidyverse)
 
 # Load data
@@ -22,15 +21,31 @@ zodiac_professions <- data |>
   select(Zodiac, Profession, count, percentage) |>
   arrange(match(Zodiac, zodiac_order))
 
+# Legend reorder
+zodiac_professions$group2 <- factor(zodiac_professions$Profession,
+  levels = c("Politician", "Lawyer", "Businessperson", "Teacher", "Economist", "Physician", "Barrister", "Art", "Farmer", "Attorneys in the United States", "Authors"))
+
+# Poltiician = #fe0002
+# Lawyer = #115fff
+# Businessperson = #fccd01
+# Teacher = #87e23d
+# Economist = #188d7b
+# Physician = #ff8e02
+# Barrister = #791e9f
+# Art = #f69cc2
+# Farmer = #999999
+# Attorneys in the United States = #555555
+# Authors = #111111
 
 # Plot barplot
 barplot <- zodiac_professions |>
   ggplot(aes(
     x = factor(Zodiac, levels = zodiac_order),
     y = percentage/100,
-    fill = Profession
+    fill = group2
   )) +
-  geom_col(position="dodge") +
+  geom_density(alpha = 0.5) +
+  geom_col(position="dodge",colour="white") +
   labs(
     x = 'Zodiac sign in chronological order',
     y = 'Percentage of people with most common profession',
@@ -38,6 +53,8 @@ barplot <- zodiac_professions |>
   ) +
   ylim(0, 25) +
   scale_y_continuous(labels=scales::label_percent()) +
+    scale_fill_manual(values = c("#fe0002","#115fff","#fccd01","#87e23d"),
+    labels = c("Politician","Lawyer", "Businessperson", "Teacher")) +
   geom_hline(
     yintercept = seq(5/100, 25/100, by = 5/100),
     color = "grey", 
