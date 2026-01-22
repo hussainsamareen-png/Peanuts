@@ -26,7 +26,7 @@ zodiac_professions <- data |>
 barplot <- zodiac_professions |>
   ggplot(aes(
     x = factor(Zodiac, levels = zodiac_order),
-    y = percentage,
+    y = percentage/100,
     fill = Profession
   )) +
   geom_col() +
@@ -36,8 +36,9 @@ barplot <- zodiac_professions |>
     title = 'Percentage of people in their zodiac\'s most common profession'
   ) +
   ylim(0, 25) +
+  scale_y_continuous(labels=scales::label_percent()) +
   geom_hline(
-    yintercept = seq(5, 25, by = 5),
+    yintercept = seq(5/100, 25/100, by = 5/100),
     color = "grey", 
     linetype = "dashed"
   ) +
