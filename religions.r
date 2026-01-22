@@ -14,7 +14,9 @@ religion_professions <- data |>
   mutate(total_in_religion = sum(count)) |>
   slice_max(count, n = 1, with_ties = FALSE) |>
   mutate(percentage = (count / total_in_religion) * 100) |>
-  select(Religion, Profession, count, percentage)
+  ungroup() |>
+  select(Religion, Profession, count, percentage) |>
+  mutate(Religion = fct_reorder(Religion, percentage, .desc = TRUE))
 
 # Plot barplot
 barplot <- religion_professions |>
@@ -41,4 +43,3 @@ ggsave(
   filename = "religions_barplot.png",
   plot = barplot
 )
-
