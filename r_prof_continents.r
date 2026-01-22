@@ -43,6 +43,6 @@ barplot <- continent_professions |>
 ggsave(
   filename = "continents_barplot.png",
   plot = barplot,
-  width=10
+  width=10,
 )
 

@@ -42,5 +42,6 @@ barplot <- religion_professions |>
 # Save the barplot as .png
 ggsave(
   filename = "religions_barplot.png",
-  plot = barplot
+  plot = barplot,
+  width=10,
 )
