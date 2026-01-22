@@ -14,7 +14,9 @@ continent_professions <- data |>
   mutate(total_in_continent = sum(count)) |>
   slice_max(count, n = 1, with_ties = FALSE) |>
   mutate(percentage = (count / total_in_continent) * 100) |>
-  select(Continent, Profession, count, percentage)
+  ungroup() |>
+  select(Continent, Profession, count, percentage) |>
+  mutate(Continent = fct_reorder(Continent, percentage, .desc = TRUE))
 
 # Plot barplot
 barplot <- continent_professions |>
