@@ -22,7 +22,7 @@ zodiac_professions <- data |>
   arrange(match(Zodiac, zodiac_order))
 
 # Legend reorder
-zodiac_professions$group2 <- factor(zodiac_professions$Profession,
+zodiac_professions$Professions <- factor(zodiac_professions$Profession,
   levels = c("Politician", "Lawyer", "Businessperson", "Teacher", "Economist", "Physician", "Barrister", "Art", "Farmer", "Attorneys in the United States", "Authors"))
 
 # Poltiician = #fe0002
@@ -34,22 +34,22 @@ zodiac_professions$group2 <- factor(zodiac_professions$Profession,
 # Barrister = #791e9f
 # Art = #f69cc2
 # Farmer = #999999
-# Attorneys in the United States = #555555
-# Authors = #111111
+# Attorneys in the United States = #00FFFF
+# Authors = #555555
 
 # Plot barplot
 barplot <- zodiac_professions |>
   ggplot(aes(
     x = factor(Zodiac, levels = zodiac_order),
     y = percentage/100,
-    fill = group2
+    fill = Professions
   )) +
   geom_density(alpha = 0.5) +
   geom_col(position="dodge",colour="white") +
   labs(
-    x = 'Zodiac sign in chronological order',
-    y = 'Percentage of people with most common profession',
-    title = 'Percentage of people in their zodiac\'s most common profession'
+    x = 'Zodiac Signs (Chronological Order)',
+    y = 'People with profession (%)',
+    # title = 'Percentage of people each zodiac\'s 3 most common professions'
   ) +
   ylim(0, 25) +
   scale_y_continuous(labels=scales::label_percent()) +
@@ -61,13 +61,16 @@ barplot <- zodiac_professions |>
     linetype = "dashed"
   ) +
 theme(
-  axis.text.x = element_text(angle = 45, hjust = 1, vjust = 0.5, size = 10),
-  axis.title.x = element_text(margin = margin(t = 15))
+  axis.text.x = element_text(angle = 45, hjust = 1, vjust = 0.8, size = 12),
+  axis.text.y = element_text(size = 10),
+  axis.title.y = element_text(size = 14),
+  axis.title.x = element_text(margin = margin(t = 15), size = 14),
+  legend.title = element_text(size = 12)
 )
 
 # Save the barplot as .png
 ggsave(
   filename = "zodiac_barplot.png",
   plot = barplot,
-  width=10
+  width=12
 )
