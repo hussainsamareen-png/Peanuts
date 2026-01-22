@@ -17,10 +17,11 @@ zodiac_professions <- data |>
   summarise(count = n(), .groups = "drop") |>
   group_by(Zodiac) |>
   mutate(total_in_zodiac = sum(count)) |>
-  slice_max(count, n = 1, with_ties = FALSE) |>
+  slice_max(count, n = 3, with_ties = FALSE) |>
   mutate(percentage = (count / total_in_zodiac) * 100) |>
   select(Zodiac, Profession, count, percentage) |>
   arrange(match(Zodiac, zodiac_order))
+
 
 # Plot barplot
 barplot <- zodiac_professions |>
@@ -29,7 +30,7 @@ barplot <- zodiac_professions |>
     y = percentage/100,
     fill = Profession
   )) +
-  geom_col() +
+  geom_col(position="dodge") +
   labs(
     x = 'Zodiac sign in chronological order',
     y = 'Percentage of people with most common profession',
@@ -51,5 +52,5 @@ theme(
 ggsave(
   filename = "zodiac_barplot.png",
   plot = barplot,
-  width = 10
+  width=10
 )

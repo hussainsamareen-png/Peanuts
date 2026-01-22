@@ -12,7 +12,7 @@ religion_professions <- data |>
   summarise(count = n(), .groups = "drop") |>
   group_by(Religion) |>
   mutate(total_in_religion = sum(count)) |>
-  slice_max(count, n = 1, with_ties = FALSE) |>
+  slice_max(count, n = 3, with_ties = FALSE) |>
   mutate(percentage = (count / total_in_religion) * 100) |>
   ungroup() |>
   select(Religion, Profession, count, percentage) |>
@@ -25,7 +25,7 @@ barplot <- religion_professions |>
     y = percentage/100,
     fill = Profession
   )) +
-  geom_col() +
+  geom_col(position="dodge") +
   labs(
     x = 'Religion',
     y = 'Percentage of people with most common profession',

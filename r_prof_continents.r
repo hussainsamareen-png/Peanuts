@@ -12,7 +12,7 @@ continent_professions <- data |>
   summarise(count = n(), .groups = "drop") |>
   group_by(Continent) |>
   mutate(total_in_continent = sum(count)) |>
-  slice_max(count, n = 1, with_ties = FALSE) |>
+  slice_max(count, n = 3, with_ties = FALSE) |>
   mutate(percentage = (count / total_in_continent) * 100) |>
   ungroup() |>
   select(Continent, Profession, count, percentage) |>
@@ -25,7 +25,7 @@ barplot <- continent_professions |>
     y = percentage/100,
     fill = Profession
   )) +
-  geom_col() +
+  geom_col(position="dodge") +
   labs(
     x = 'Continent',
     y = 'Percentage of people with most common profession',
@@ -42,6 +42,7 @@ barplot <- continent_professions |>
 # Save the barplot as .png
 ggsave(
   filename = "continents_barplot.png",
-  plot = barplot
+  plot = barplot,
+  width=10
 )
 
