@@ -2,7 +2,7 @@
 library(tidyverse)
 
 # Load data
-data <- read_csv("zodiac_prof_activity.csv") # <-- INSERT CSV HERE!
+data <- read_csv("zodiac_prof_activity.csv")
 
 # Order them, such that they are in chronological order
 zodiac_order <- c(
@@ -22,8 +22,8 @@ zodiac_professions <- data |>
   arrange(match(Zodiac, zodiac_order))
 
 # Legend reorder
-zodiac_professions$Professions <- factor(zodiac_professions$Profession,
-  levels = c("Politician", "Lawyer", "Businessperson", "Teacher", "Economist", "Physician", "Barrister", "Art", "Farmer", "Attorneys in the United States", "Authors"))
+# zodiac_professions$Professions <- factor(zodiac_professions$Profession,
+#   levels = c("Politician", "Lawyer", "Businessperson", "Teacher"))
 
 # Poltiician = #fe0002
 # Lawyer = #115fff
@@ -39,11 +39,12 @@ zodiac_professions$Professions <- factor(zodiac_professions$Profession,
 
 # Plot barplot
 barplot <- zodiac_professions |>
-  ggplot(aes(
+  ggplot() +
+  aes(
     x = factor(Zodiac, levels = zodiac_order),
     y = percentage/100,
-    fill = Professions
-  )) +
+    fill = Profession,
+  ) +
   geom_density(alpha = 0.5) +
   geom_col(position="dodge",colour="white") +
   labs(
@@ -53,8 +54,9 @@ barplot <- zodiac_professions |>
   ) +
   ylim(0, 25) +
   scale_y_continuous(labels=scales::label_percent()) +
-    scale_fill_manual(values = c("#fe0002","#115fff","#fccd01","#87e23d"),
-    labels = c("Politician","Lawyer", "Businessperson", "Teacher")) +
+  scale_fill_manual(values = c("#fe0002","#115fff","#fccd01","#87e23d"),
+    # labels = c("Politician","Lawyer", "Businessperson", "Teacher")
+    ) +
   geom_hline(
     yintercept = seq(5/100, 25/100, by = 5/100),
     color = "grey", 
