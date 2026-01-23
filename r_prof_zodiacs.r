@@ -25,6 +25,8 @@ zodiac_professions <- data |>
 zodiac_professions$Professions <- factor(zodiac_professions$Profession,
   levels = c("Politician", "Lawyer", "Businessperson", "Teacher", "Economist", "Physician", "Barrister", "Art", "Farmer", "Attorneys in the United States", "Authors"))
 
+print(zodiac_professions, n=100)
+
 # Poltiician = #fe0002
 # Lawyer = #115fff
 # Businessperson = #fccd01
