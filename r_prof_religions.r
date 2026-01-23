@@ -91,6 +91,8 @@ sub_religion_professions <- data |>
 sub_religion_professions$Professions <- factor(sub_religion_professions$Profession,
   levels = c("Politician", "Businessperson", "Teacher", "Economist", "Lawyer", "Physician", "Barrister", "Art", "Farmer", "Attorneys in the United States", "Author"))
 
+print(sub_religion_professions, n =100)
+
 # Poltiician = #fe0002
 # Lawyer = #115fff
 # Businessperson = #fccd01

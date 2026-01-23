@@ -72,7 +72,7 @@ theme(
 
 # Save the barplot as .png
 ggsave(
-  filename = "activity_zodiac_barplot.png",
+  filename = "zodiac_presentation_activity.png",
   plot = barplot,
   width=12
 )
